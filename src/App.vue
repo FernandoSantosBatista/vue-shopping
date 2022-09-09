@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand justify-content-center">
+  <nav class="navbar fixed-top navbar-expand justify-content-center">
     <ul class="navbar-nav">
       <li class="nav-item">
         <router-link to="/"> Home </router-link>
@@ -19,8 +19,10 @@ import { mapActions, mapState } from "pinia";
 import { useShopStore } from "./stores/stores";
 export default {
   name: "App",
+ 
 
-  computed: {
+  computed:
+    {
     ...mapState(useShopStore, ["productsInBag"]),
   },
   methods: {
@@ -34,7 +36,7 @@ export default {
 
 <style>
 .navbar {
-  background-color: #fff;
+  background: linear-gradient(to right, #dadadd, #ffffff);
   font-size: 22px;
   font-weight: bold;
 }
@@ -44,16 +46,16 @@ font-size: 22px;
 }
 nav a {
   text-decoration: none;
-  color: #ff8800;
+  color: #040280;
   padding: 10px;
   display: inline-block;
 }
 a {
   text-decoration: none;
-  color: #ff8800;
+  color: #040280;
 }
 nav a:hover {
   text-decoration: none;
-  color: #f84904;
+  color: #3708b8;
 }
 </style>

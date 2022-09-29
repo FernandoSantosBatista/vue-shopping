@@ -4,35 +4,167 @@
   functions = "netlify/functions"
   publish = "dist"
 
-[build.environment]
-  # cache Cypress binary in local "node_modules" folder
-  # so Netlify caches it
-  CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
-  # set TERM variable for terminal output
-  TERM = "xterm"
+[context.deploy-preview]
+  publish = "dist/"
 
-# run Cypress E2E tests
+[[redirects]]
+  from = "/"
+  to = "/guides/overview/why-cypress/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/guides"
+  to = "/guides/overview/why-cypress/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api"
+  to = "/api/table-of-contents/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/api/table-of-contents"
+  to = "/api/table-of-contents/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/plugins"
+  to = "/plugins/directory"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/examples"
+  to = "/examples/examples/recipes/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq/questions/using-cypress-faq/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/overview/choosing-testing-type"
+  to = "/guides/core-concepts/testing-types/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/dashboard/dashboard-introduction"
+  to = "/guides/dashboard/introduction/"
+  status = 301
+  force = true
+	
+[[redirects]]
+  from = "/guides/component-testing/introduction"
+  to = "/guides/component-testing/writing-your-first-component-test"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/component-testing"
+  to = "/guides/component-testing/writing-your-first-component-test"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/component-testing/framework-configuration"
+  to = "/guides/component-testing/component-framework-configuration/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/core-concepts/test-runner"
+  to = "/guides/core-concepts/cypress-app"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/core-concepts/cypress-studio"
+  to = "/guides/references/cypress-studio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/getting-started/writing-your-first-test"
+  to = "/guides/end-to-end-testing/writing-your-first-end-to-end-test"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/getting-started/testing-your-app"
+  to = "/guides/end-to-end-testing/testing-your-app"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/getting-started/component-testing"
+  to = "/guides/component-testing/writing-your-first-component-test"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/testing-strategies/auth0-authentication"
+  to = "/guides/end-to-end-testing/auth0-authentication"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/testing-strategies/amazon-cognito-authentication"
+  to = "/guides/end-to-end-testing/amazon-cognito-authentication"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/testing-strategies/okta-authentication"
+  to = "/guides/end-to-end-testing/okta-authentication"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/testing-strategies/google-authentication"
+  to = "/guides/end-to-end-testing/google-authentication"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/testing-strategies/working-with-graphql"
+  to = "/guides/end-to-end-testing/working-with-graphql"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/migrating-to-cypress/protractor"
+  to = "/guides/end-to-end-testing/protractor-to-cypress"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/references/bundled-tools"
+  to = "/guides/references/bundled-libraries"
+  status = 301
+  force = true
+  
+[[redirects]]
+  from = "/guides/references/bundled-tools.html"
+  to = "/guides/references/bundled-libraries"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/component-testing/props-vue"
+  to = "/guides/component-testing/testing-vue"
+  status = 301
+  force = true
+
 [[plugins]]
-package = "netlify-plugin-cypress"
+package = "@netlify/plugin-sitemap"
+
   [plugins.inputs]
-    # skip the default tests before the deploy
-    skip = true
-  [plugins.inputs.onSuccess]
-    # run tests after the deploy
-    enable = true
-
-  ## Uncomment to use this redirect for Single Page Applications like create-react-app.
-  ## Not needed for static site generators.
-  [[redirects]]
-   from = "/*"
-   to = "/index.html"
-   status = 200
-
-  ## (optional) Settings for Netlify Dev
-  ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
-  #[dev]
-  #  command = "yarn start" # Command to start your dev server
-  #  port = 3000 # Port that the dev server will be listening on
-  #  publish = "dist" # Folder with the static content for _redirect file
-
-  ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/
+  baseUrl = "https://docs.cypress.io"

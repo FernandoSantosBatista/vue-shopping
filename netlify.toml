@@ -1,4 +1,9 @@
 # example netlify.toml
+
+[[plugins]]
+  # runs Cypress tests against the deployed URL
+  package = "netlify-plugin-cypress"
+
 [build]
   command = "vite build"
   functions = "netlify/functions"

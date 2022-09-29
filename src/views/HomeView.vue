@@ -33,7 +33,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { mapActions, mapState } from "pinia";
 import { useShopStore } from "../stores/stores";

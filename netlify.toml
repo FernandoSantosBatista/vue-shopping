@@ -6,7 +6,10 @@
 
 
 [[plugins]]
-  package = "netlify-plugin-cypress"
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  baseUrl = "https://docs.cypress.io"
 
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.

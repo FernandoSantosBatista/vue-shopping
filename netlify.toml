@@ -12,7 +12,7 @@ CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
 # set TERM variable for terminal output
 TERM = "xterm"
 
-[[plugins]]
+
 [plugins.inputs.onSuccess]
 # runs Cypress tests against the deployed URL
 package = "netlify-plugin-cypress"
